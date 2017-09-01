@@ -7,28 +7,28 @@ exports.seed = function(knex, Promise) {
       {
         "post_id":1,
 
-        "producer_name": "The Guy",
+        "producer_name": "DJ Premier",
 
-        "beat_title": "Hello World",
+        "beat_title": "NY State of Mind",
 
-        "beat_description":"Here's my flip",
+        "beat_description":"Made a boom bap joint out of this one. Enjoy",
 
-        "beat_url":"<iframe width='auto' height='auto' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/336570719&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true'></iframe>",
+        "beat_url":"https://www.youtube.com/watch?v=5MXi1-zYIkc",
 
         "vote_count":0
 
       }, {
         "post_id":2,
 
-        "producer_name": "Fat Boi",
+        "producer_name": "Pro T",
 
-        "beat_title": "World Hello",
+        "beat_title": "King of NY",
 
-        "beat_description":"Went drum heavy on this one.",
+        "beat_description":"Went in a trap direction on this one.",
 
-        "beat_url":"<iframe width='auto' height='auto' src='https://www.youtube.com/embed/X4or-6CARlI' frameborder='0' allowfullscreen></iframe>",
+        "beat_url":"https://www.youtube.com/watch?v=o5aoD2Hcsnw",
 
-        "vote_count":3
+        "vote_count":0
 
 
 
@@ -36,16 +36,15 @@ exports.seed = function(knex, Promise) {
       {
        "post_id":1,
 
-       "producer_name": "Ayyyyeee",
+       "producer_name": "Cool Kid",
 
-       "beat_title": "LOLOLOL",
+       "beat_title": "Walking Down the Street",
 
        "beat_description":"Went crazy.",
 
-       "beat_url":"<iframe width='auto' height='auto' src='https://www.youtube.com/embed/X4or-6CARlI' frameborder='0' allowfullscreen></iframe>",
+       "beat_url":"https://www.youtube.com/watch?v=1nzj4sToRaU",
 
-       "vote_count":2
-
+       "vote_count":0
 
      },
     ]);

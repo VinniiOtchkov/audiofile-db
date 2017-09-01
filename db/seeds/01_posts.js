@@ -5,13 +5,13 @@ exports.seed = function(knex, Promise) {
     return knex('posts').insert([
 
       {
-        "artist_name": "Jimmy Neutron",
+        "artist_name": "Joe Chambers",
 
-        "title": "Take Cover",
+        "title": "Mind Rain",
 
-        "url":'https://www.youtube.com/watch?v=03Uq62mwars',
+        "url":'hhttps://www.youtube.com/watch?v=4_GskCCFBnI',
 
-        "description":"Solid sample. Could make for a cool lofi beat"
+        "description":"Really dope piano sample. Would like to see what someone can do with around 1 minute"
 
       }, {
         "artist_name": "Mario Molino",

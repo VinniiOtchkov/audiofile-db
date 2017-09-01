@@ -1,31 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
-var populate = require('../lib/populate');
+var populate = require('knex-populate');
 
 router.get('/', function(req, res, next) {
-
-  // populate.getAll('events', 'performers').then(function (result) {
-  //         var populatedArr = populate.mapAllToObj(result, 'performer_id', 'performers');
-  //         res.send(populatedArr);
-  //     });
-  knex('posts')
-    .select('posts.id as sample_id',
-      'posts.artist_name as sample_artist',
-      'posts.title as sample_title',
-      'posts.description as sample_description',
-      'posts.url as sample_url',
-      'comments.id as comment_id',
-      'comments.producer_name as producer_name',
-      'comments.beat_title as beat_title',
-      'comments.beat_description as beat_description',
-      'comments.beat_url as beat_url',
-      'comments.vote_count as vote_count'
-    )
-    .leftJoin('comments', 'posts.id', 'comments.post_id')
-    .then(function(posts) {
-      res.send(posts);
-  });
+  populate(knex, 'posts', 'comments', 'post_id', 'comments')
+    .then(posts => res.send(posts))
 });
 
 router.get('/posts/:id', function(req,res){
@@ -59,10 +39,24 @@ router.post('/posts', function(req,res){
     artist_name:req.body.artist_name,
     title:req.body.title,
     url:req.body.url,
-    description:req.body.description,
+    description:req.body.description
   }).then(()=>{
     res.redirect('/')
   })
+})
+
+router.post('/comments',function(req,res){
+  knex('comments')
+    .insert({
+      post_id:req.body.post_id,
+      producer_name:req.body.producer_name,
+      beat_title:req.body.beat_title,
+      beat_description:req.body.beat_description,
+      beat_url:req.body.beat_url,
+      vote_count:0
+    }).then(()=>{
+      res.redirect('/')
+    })
 })
 
 router.delete('/posts/:id', (req,res) =>{
@@ -72,10 +66,16 @@ router.delete('/posts/:id', (req,res) =>{
 })
 
 
-populate.getAll('events', 'performers').then(function (result) {
-        var populatedArr = populate.mapAllToObj(result, 'performer_id', 'performers');
-        res.send(populatedArr);
+router.patch('/comments/:id', function(req, res) {
+  console.log('req.body', req.body);
+  knex('comments')
+    .update({ vote_count: req.body.vote_count+1 })
+    .where('id', req.params.id)
+    .then(function() {
+      populate(knex, 'posts', 'comments', 'post_id', 'comments')
+        .then(posts => res.send(posts))
     });
+});
 
 
 
