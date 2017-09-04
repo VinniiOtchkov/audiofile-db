@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
 
         "title": "Mind Rain",
 
-        "url":'hhttps://www.youtube.com/watch?v=4_GskCCFBnI',
+        "url":'https://www.youtube.com/watch?v=4_GskCCFBnI',
 
         "description":"Really dope piano sample. Would like to see what someone can do with around 1 minute"
 

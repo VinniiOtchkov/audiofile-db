@@ -15,7 +15,7 @@ exports.seed = function(knex, Promise) {
 
         "beat_url":"https://www.youtube.com/watch?v=5MXi1-zYIkc",
 
-        "vote_count":0
+        "vote_count":3
 
       }, {
         "post_id":2,
@@ -28,9 +28,7 @@ exports.seed = function(knex, Promise) {
 
         "beat_url":"https://www.youtube.com/watch?v=o5aoD2Hcsnw",
 
-        "vote_count":0
-
-
+        "vote_count":1
 
       },
       {
@@ -44,7 +42,7 @@ exports.seed = function(knex, Promise) {
 
        "beat_url":"https://www.youtube.com/watch?v=1nzj4sToRaU",
 
-       "vote_count":0
+       "vote_count":1
 
      },
     ]);
